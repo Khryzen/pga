@@ -13,6 +13,9 @@ collections:
         name: "school"
         fields:
           - { name: "school", label: "School Name", widget: "string" }
+          - { name: "mission", label: "School Mission", widget: "string" }
+          - { name: "vision", label: "School Vision", widget: "string" }
+          - { name: "goals", label: "School Goals", widget: "string" }
           - { name: "logo", label: "School Logo", widget: "image" }
   - name: "homepage"
     label: "Homepage"
