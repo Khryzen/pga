@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
+
 
 type HomePageContent = {
   headline: string;
@@ -22,7 +25,10 @@ async function fetchJSON<T>(url: string): Promise<T> {
   return res.json();
 }
 
+
+
 export default function HomePage(){
+
   const [content, setContent] = useState<HomePageContent| null >(null);
   const [schoolContent, setSchoolContent] = useState<SchoolContent | null > (null);
 
@@ -68,45 +74,115 @@ export default function HomePage(){
 
   return (
     <>
-      <section className="flex items-center justify-center w-full md:min-h-[788px] bg-[#F2F6FDFF]">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+        className="flex items-center justify-center w-full md:min-h-[788px] bg-[#F2F6FDFF]"
+      >
         <div className="min-w-full flex flex-row">
           <div className="flex-1 px-10 py-30 mx-auto">
             <div className="flex flex-col gap-5 px-5">
-              <h1 className="text-6xl font-bold align-left font-montserrat">
+              <motion.h1
+                className="text-6xl font-bold align-left font-montserrat"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
                 {content.headline}
-              </h1>
-              <h3 className="text-xl font-semibold font-montserrat">
+              </motion.h1>
+              <motion.h3
+                className="text-xl font-semibold font-montserrat"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
                 {content.subheadline}
-              </h3>
-              <p className="text-s font-open-sans">{content.description}</p>
-              <button className="self-start px-5 py-2 bg-[#588de9] text-white rounded">
+              </motion.h3>
+              <motion.p
+                className="text-s font-open-sans"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                {content.description}
+              </motion.p>
+              <motion.button
+                className="self-start px-5 py-2 bg-[#588de9] text-white rounded"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
                 View all events
-              </button>
+              </motion.button>
             </div>
           </div>
           <div className="flex-1 px-10 py-10 flex items-center justify-center mx-auto">
-            <img
-              src={`${import.meta.env.BASE_URL}${content.image.replace(/^\//,"")}`}
+            <motion.img
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              src={`${import.meta.env.BASE_URL}${content.image.replace(
+                /^\//,
+                ""
+              )}`}
               alt="image"
               className="max-w-md rounded rounded-[20px]"
             />
           </div>
         </div>
-      </section>
-      <section className="my-20 flex flex-col items-center justify-center w-full px-5 gap-5 md:min-h-[400px]">
+      </motion.section>
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8 }}
+        className="my-20 flex flex-col items-center justify-center w-full px-5 gap-5 md:min-h-[400px]"
+      >
         <h1 className="font-montserrat text-3xl font-semibold">
           {content.greetings.headline}
         </h1>
         <p className="text-s font-open-sans max-w-5xl">
           {content.greetings.description}
         </p>
-      </section>
-      <section className="my-20 flex flex-col items-center justify-center w-full  px-5 gap-5 md:min-h-[400px] bg-[#F2F6FDFF]">
+      </motion.section>
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8 }}
+        className="my-20 flex flex-col items-center justify-center w-full  px-5 gap-5 md:min-h-[400px] bg-[#F2F6FDFF]"
+      >
         <h1 className="font-montserrat text-3xl font-semibold">Our Mission</h1>
         <p className="text-s font-open-sans max-w-5xl">
           {schoolContent?.mission}
         </p>
-      </section>
+      </motion.section>
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8 }}
+        className="flex flex-row items-center justify-center w-full gap-5 md:min-h-[400px]"
+      >
+        <div className="flex flex-col items-center justify-center gap-10 md:max-w-3xl mx-auto">
+          <h1 className="font-montserrat text-3xl font-semibold">Our Vision</h1>
+          <p className="text-s font-open-sans max-w-5xl text-justify">
+            {schoolContent?.vision}
+          </p>
+        </div>
+        <div className="flex-col items-center justify-center md:max-w-3xl mx-auto">
+          <img
+            src={`${import.meta.env.BASE_URL}${content.image.replace(
+              /^\//,
+              ""
+            )}`}
+            alt="image"
+            className="max-w-md rounded rounded-[20px]"
+          />
+        </div>
+      </motion.section>
     </>
   );
 }
