@@ -17,30 +17,41 @@ type SchoolContent = {
   goals: string;
 };
 
+async function fetchJSON<T>(url: string): Promise<T> {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Failed to fetch ${url}`);
+  return res.json();
+}
+
 export default function HomePage(){
   const [content, setContent] = useState<HomePageContent| null >(null);
-  useEffect(() =>{
-    fetch(`${import.meta.env.BASE_URL}content/homepage.json`)
-      .then((res) => res.json())
-      .then(setContent);
-  }, []);
-  const [schoolContent, setSchoolContent] = useState<SchoolContent | null>(
-    null
-  );
-  useEffect(() =>{
-    fetch(`${import.meta.env.BASE_URL}content/school.json`)
-      .then((res) => res.json())
-      .then(setSchoolContent);
-  }, []);
-  
-
+  const [schoolContent, setSchoolContent] = useState<SchoolContent | null > (null);
   const [greetingsContent, setGreetingsContent] = useState<HomePageGreetings | null>(null);
-  useEffect(() =>{
-    fetch(`${import.meta.env.BASE_URL}content/greetings.json`)
-      .then((res) => res.json())
-      .then(setGreetingsContent);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const [homepage, greetings, school] = await Promise.all([
+          fetchJSON<HomePageContent>(
+            `${import.meta.env.BASE_URL}content/homepage.json`
+          ),
+          fetchJSON<HomePageGreetings>(
+            `${import.meta.env.BASE_URL}content/greetings.json`
+          ),
+          fetchJSON<SchoolContent>(
+            `${import.meta.env.BASE_URL}content/school.json`
+          ),
+        ]);
+        setContent(homepage);
+        setGreetingsContent(greetings);
+        setSchoolContent(school);
+      } catch (err) {
+        console.error(err);
+      }
+    })();
   }, []);
 
+  // Skeleton loader
   if (!content) {
     return (
       <section className="flex items-center justify-center w-full">
@@ -81,10 +92,7 @@ export default function HomePage(){
           </div>
           <div className="flex-1 px-10 py-10 flex items-center justify-center mx-auto">
             <img
-              src={`${import.meta.env.BASE_URL}${content.image.replace(
-                /^\//,
-                ""
-              )}`}
+              src={`${import.meta.env.BASE_URL}${content.image.replace(/^\//,"")}`}
               alt="image"
               className="max-w-md rounded rounded-[20px]"
             />
