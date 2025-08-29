@@ -3,7 +3,43 @@ import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import { useRef, useEffect, useState } from "react";
 
-function App() {
+type SchoolDetails = {
+  school: string;
+  logo: string;
+};
+
+function App() {  
+  const [content, setContent] = useState<SchoolDetails | null>(null);
+    useEffect(() =>{
+      fetch(`${import.meta.env.BASE_URL}content/school.json`)
+        .then((res) => res.json())
+        .then(setContent);
+    }, []);
+
+    useEffect(() => {
+      if (!content?.logo) return;
+      let favicon = document.querySelector<HTMLLinkElement>("link[rel='icon']");
+      if (!favicon) {
+        favicon = document.querySelector<HTMLLinkElement>(
+          "link[rel='shortcut icon']"
+        );
+      }
+
+      if (favicon) {
+        favicon.href = `${import.meta.env.BASE_URL}${content.logo.replace(
+          /^\//,
+          ""
+        )}`;
+      } else {
+        const newFavicon = document.createElement("link");
+        newFavicon.rel = "icon";
+        newFavicon.href = `${import.meta.env.BASE_URL}${content.logo.replace(
+          /^\//,
+          ""
+        )}`;
+        document.head.appendChild(newFavicon);
+      }
+    }, [content]);
   const navRef = useRef<HTMLElement | null>(null);
   const [navHeight, setNavHeight] = useState(0);
 
@@ -36,12 +72,15 @@ function App() {
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              src={`${import.meta.env.BASE_URL}${content?.logo.replace(
+                /^\//,
+                ""
+              )}`}
               className="h-8"
-              alt="Flowbite Logo"
+              alt="School Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap">
-              Flowbite
+              {content?.school}
             </span>
           </a>
           <div className="flex gap-2 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
