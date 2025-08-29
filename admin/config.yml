@@ -5,6 +5,15 @@ backend:
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 collections:
+  - name: "school"
+    label: "School"
+    files:
+      - file: "public/content/school.json"
+        label: "School Content"
+        name: "school"
+        fields:
+          - { name: "school", label: "School Name", widget: "string" }
+          - { name: "logo", label: "School Logo", widget: "image" }
   - name: "homepage"
     label: "Homepage"
     files:
