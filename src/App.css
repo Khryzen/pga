@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary-100: oklch(0.9745 0.0079 253.85);
+  --color-primary-150: oklch(0.8953 0.0216 257.69);
+  --color-primary-200: oklch(0.817 0.0344 260.67);
+  --color-primary-250: oklch(0.7387 0.0465 261.94);
+  --color-primary-300: oklch(0.6621 0.0583 262.3);
+  --color-primary-350: oklch(0.5878 0.0699 262.47);
+  --color-primary-400: oklch(0.5147 0.0818 262.47);
+  --color-primary-450: oklch(0.4402 0.0964 262.2);
+  --color-primary-500: oklch(0.3927 0.1018 261.3);
+  --color-primary-550: oklch(0.3541 0.0984 260.67);
+  --color-primary-600: oklch(0.3168 0.0954 260.03);
+  --color-primary-650: oklch(0.281 0.0924 259.2);
+  --color-primary-700: oklch(0.2464 0.0894 258.42);
+  --color-primary-750: oklch(0.2131 0.0864 257.51);
+  --color-primary-800: oklch(0.1812 0.0835 256.45);
+  --color-primary-850: oklch(0.1507 0.0805 255.45);
+  --color-primary-900: oklch(0.1216 0.0775 254.12);
+  --color-primary-DEFAULT: oklch(0.3927 0.1018 261.3);
+
+  --color-secondary-100: oklch(0.9782 0.0084 153.37);
+  --color-secondary-150: oklch(0.916 0.0163 151.62);
+  --color-secondary-200: oklch(0.8524 0.0242 149.72);
+  --color-secondary-250: oklch(0.7891 0.0315 147.85);
+  --color-secondary-300: oklch(0.724 0.0396 146.16);
+  --color-secondary-350: oklch(0.6586 0.0487 144.57);
+  --color-secondary-400: oklch(0.5936 0.0583 143.2);
+  --color-secondary-450: oklch(0.5284 0.0691 142.17);
+  --color-secondary-500: oklch(0.4851 0.0763 141.7);
+  --color-secondary-550: oklch(0.4447 0.0799 141.67);
+  --color-secondary-600: oklch(0.4061 0.0836 141.6);
+  --color-secondary-650: oklch(0.3674 0.0877 141.67);
+  --color-secondary-700: oklch(0.3292 0.0921 141.83);
+  --color-secondary-750: oklch(0.2917 0.097 141.97);
+  --color-secondary-800: oklch(0.255 0.1026 142.23);
+  --color-secondary-850: oklch(0.2185 0.1091 142.5);
+  --color-secondary-900: oklch(0.1837 0.1158 142.92);
+  --color-secondary-DEFAULT: oklch(0.4851 0.0763 141.7);
+
+  --color-info-100: oklch(0.9734 0.0076 276.54);
+  --color-info-150: oklch(0.9209 0.0151 275.98);
+  --color-info-200: oklch(0.8691 0.0229 275.8);
+  --color-info-250: oklch(0.817 0.0314 275.69);
+  --color-info-300: oklch(0.7634 0.0406 275.5);
+  --color-info-350: oklch(0.7093 0.0505 275.3);
+  --color-info-400: oklch(0.6548 0.061 275.07);
+  --color-info-450: oklch(0.5999 0.0722 274.77);
+  --color-info-500: oklch(0.5435 0.085 274.32);
+  --color-info-550: oklch(0.4996 0.0864 273.83);
+  --color-info-600: oklch(0.4619 0.0859 273.4);
+  --color-info-650: oklch(0.4253 0.0855 272.9);
+  --color-info-700: oklch(0.3905 0.0851 272.37);
+  --color-info-750: oklch(0.3557 0.0847 271.62);
+  --color-info-800: oklch(0.321 0.0844 270.67);
+  --color-info-850: oklch(0.2872 0.0841 269.51);
+  --color-info-900: oklch(0.2541 0.0838 268.08);
+  --color-info-DEFAULT: oklch(0.5435 0.085 274.32);
+
+  --color-warning-100: oklch(0.9729 0.0135 77.05);
+  --color-warning-150: oklch(0.9238 0.027 76.24);
+  --color-warning-200: oklch(0.8744 0.0416 75.31);
+  --color-warning-250: oklch(0.825 0.0573 74.43);
+  --color-warning-300: oklch(0.7766 0.074 73.54);
+  --color-warning-350: oklch(0.7279 0.0921 72.63);
+  --color-warning-400: oklch(0.6791 0.1119 71.69);
+  --color-warning-450: oklch(0.6301 0.1334 70.66);
+  --color-warning-500: oklch(0.5815 0.1555 69.46);
+  --color-warning-550: oklch(0.5422 0.1423 68.86);
+  --color-warning-600: oklch(0.5042 0.1293 68.45);
+  --color-warning-650: oklch(0.4674 0.1167 68.18);
+  --color-warning-700: oklch(0.4319 0.1044 68.04);
+  --color-warning-750: oklch(0.3973 0.0924 67.89);
+  --color-warning-800: oklch(0.3637 0.0809 67.7);
+  --color-warning-850: oklch(0.3309 0.0697 67.45);
+  --color-warning-900: oklch(0.2989 0.0588 67.24);
+  --color-warning-DEFAULT: oklch(0.5815 0.1555 69.46);
+
+  --color-danger-100: oklch(0.9667 0.0177 353.68);
+  --color-danger-150: oklch(0.9103 0.0385 353.79);
+  --color-danger-200: oklch(0.8524 0.062 353.94);
+  --color-danger-250: oklch(0.7938 0.0886 354.12);
+  --color-danger-300: oklch(0.7337 0.1189 354.34);
+  --color-danger-350: oklch(0.6729 0.1524 354.59);
+  --color-danger-400: oklch(0.6125 0.1887 354.85);
+  --color-danger-450: oklch(0.5516 0.2289 355.1);
+  --color-danger-500: oklch(0.4883 0.2742 355.33);
+  --color-danger-550: oklch(0.4288 0.2758 355.77);
+  --color-danger-600: oklch(0.3807 0.2785 355.8);
+  --color-danger-650: oklch(0.3341 0.281 356.12);
+  --color-danger-700: oklch(0.2891 0.2831 356.41);
+  --color-danger-750: oklch(0.2458 0.2847 356.63);
+  --color-danger-800: oklch(0.2039 0.2858 356.81);
+  --color-danger-850: oklch(0.1637 0.2863 356.9);
+  --color-danger-900: oklch(0.1251 0.2868 357.0);
+  --color-danger-DEFAULT: oklch(0.4883 0.2742 355.33);
+
+  --color-success-100: oklch(0.9774 0.0084 155.05);
+  --color-success-150: oklch(0.916 0.0177 155.83);
+  --color-success-200: oklch(0.8526 0.0287 156.48);
+  --color-success-250: oklch(0.7876 0.0415 157.0);
+  --color-success-300: oklch(0.7214 0.0567 157.56);
+  --color-success-350: oklch(0.6548 0.0753 158.11);
+  --color-success-400: oklch(0.5878 0.0984 158.58);
+  --color-success-450: oklch(0.5376 0.1174 158.82);
+  --color-success-500: oklch(0.4952 0.1287 159.0);
+  --color-success-550: oklch(0.4568 0.1265 159.08);
+  --color-success-600: oklch(0.4206 0.1243 159.16);
+  --color-success-650: oklch(0.3861 0.122 159.25);
+  --color-success-700: oklch(0.3526 0.1197 159.34);
+  --color-success-750: oklch(0.3201 0.1173 159.43);
+  --color-success-800: oklch(0.2885 0.1148 159.54);
+  --color-success-850: oklch(0.2576 0.1122 159.66);
+  --color-success-900: oklch(0.2274 0.1095 159.78);
+  --color-success-DEFAULT: oklch(0.4952 0.1287 159.0);
+
+  --color-tertiary-100: oklch(0.9754 0.0075 258.94);
+  --color-tertiary-150: oklch(0.9702 0.0076 259.07);
+  --color-tertiary-200: oklch(0.9653 0.0077 259.21);
+  --color-tertiary-250: oklch(0.9601 0.0078 259.38);
+  --color-tertiary-300: oklch(0.955 0.0079 259.55);
+  --color-tertiary-350: oklch(0.9498 0.008 259.73);
+  --color-tertiary-400: oklch(0.9446 0.0081 259.91);
+  --color-tertiary-450: oklch(0.9395 0.0082 260.09);
+  --color-tertiary-500: oklch(0.9395 0.0082 260.09);
+  --color-tertiary-550: oklch(0.817 0.0344 260.67);
+  --color-tertiary-600: oklch(0.6621 0.0583 262.3);
+  --color-tertiary-650: oklch(0.5147 0.0818 262.47);
+  --color-tertiary-700: oklch(0.3644 0.1084 262.0);
+  --color-tertiary-750: oklch(0.3013 0.1158 261.27);
+  --color-tertiary-800: oklch(0.2464 0.0894 258.42);
+  --color-tertiary-850: oklch(0.1812 0.0835 256.45);
+  --color-tertiary-900: oklch(0.1216 0.0775 254.12);
+  --color-tertiary-DEFAULT: oklch(0.9395 0.0082 260.09);
+
+  --color-accent-100: oklch(0.9859 0.0039 88.54);
+  --color-accent-150: oklch(0.9535 0.0055 87.23);
+  --color-accent-200: oklch(0.9209 0.0072 85.91);
+  --color-accent-250: oklch(0.888 0.009 84.58);
+  --color-accent-300: oklch(0.8549 0.0109 83.21);
+  --color-accent-350: oklch(0.822 0.0129 81.93);
+  --color-accent-400: oklch(0.7891 0.015 80.64);
+  --color-accent-450: oklch(0.7558 0.0173 79.29);
+  --color-accent-500: oklch(0.7231 0.0199 77.92);
+  --color-accent-550: oklch(0.6729 0.0279 76.5);
+  --color-accent-600: oklch(0.6225 0.0366 75.14);
+  --color-accent-650: oklch(0.5638 0.0464 73.19);
+  --color-accent-700: oklch(0.4851 0.0577 70.36);
+  --color-accent-750: oklch(0.4061 0.0697 67.57);
+  --color-accent-800: oklch(0.3292 0.0825 64.92);
+  --color-accent-850: oklch(0.2541 0.0965 62.48);
+  --color-accent-900: oklch(0.1837 0.1118 60.01);
+  --color-accent-DEFAULT: oklch(0.7231 0.0199 77.92);
+
+  --font-merriweather: "Merriweather", serif;
+  --font-open-sans: "Open Sans", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.merriweather {
+  font-family: var(--font-merriweather);
+}
+
+.open-sans{
+  font-family: var(--font-open-sans)
+}
+.montserrat{
+  font-family: var(--font-montserrat)
+}
