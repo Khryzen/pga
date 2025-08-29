@@ -15,15 +15,15 @@ type HomePageGreetings = {
 export default function HomePage(){
   const [content, setContent] = useState<HomePageContent| null >(null);
   useEffect(() =>{
-    fetch('/content/homepage.json')
-    .then((res) => res.json())
-    .then(setContent)
+    fetch(`${import.meta.env.BASE_URL}content/homepage.json`)
+      .then((res) => res.json())
+      .then(setContent);
   }, []);
   
 
   const [greetingsContent, setGreetingsContent] = useState<HomePageGreetings | null>(null);
   useEffect(() =>{
-    fetch("/content/greetings.json")
+    fetch(`${import.meta.env.BASE_URL}content/greetings.json`)
       .then((res) => res.json())
       .then(setGreetingsContent);
   }, []);
