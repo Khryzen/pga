@@ -8,7 +8,7 @@ collections:
   - name: "homepage"
     label: "Homepage"
     files:
-      - file: "content/homepage.json"
+      - file: "public/content/homepage.json"
         label: "Homepage Content"
         name: "homepage"
         fields:
@@ -19,7 +19,7 @@ collections:
   - name: "greetings"
     label: "Greetings"
     files:
-      - file: "content/greetings.json"
+      - file: "public/content/greetings.json"
         label: "Greetings Content"
         name: "greetings"
         fields:

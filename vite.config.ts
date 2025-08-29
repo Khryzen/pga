@@ -10,4 +10,5 @@ export default defineConfig({
     tailwindcss(),
     // flowbiteReact()
   ],
+  base: process.env.NODE_ENV === "production" ? "/pga/" : "/",
 })

@@ -78,10 +78,10 @@ export default function HomePage(){
       </section>
       <section className="my-20 flex flex-col items-center justify-center w-full px-5 gap-5 md:min-h-[400px]">
         <h1 className="font-montserrat text-3xl font-semibold">
-          {greetingsContent!.headline}
+          {greetingsContent?.headline}
         </h1>
         <p className="text-s font-open-sans max-w-5xl">
-          {greetingsContent!.description}
+          {greetingsContent?.description}
         </p>
       </section>
     </>

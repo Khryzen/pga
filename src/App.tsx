@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import { useRef, useEffect, useState } from "react";
 
@@ -22,8 +22,9 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const basename = import.meta.env.MODE === "production" ? "/pga" : "/";
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       {/* Navbar */}
       <nav
         ref={navRef}
@@ -57,41 +58,41 @@ function App() {
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-open-sans font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
               <li>
-                <a href="/" className="block py-2 px-3 text-blue-700">
+                <Link to="/" className="block py-2 px-3 text-blue-700">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/events"
+                <Link
+                  to="/events"
                   className="block py-2 px-3 text-gray-900 hover:text-blue-700"
                 >
                   Activities & Events
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/faculty"
+                <Link
+                  to="/faculty"
                   className="block py-2 px-3 text-gray-900 hover:text-blue-700"
                 >
                   Faculty
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/admissions"
+                <Link
+                  to="/admissions"
                   className="block py-2 px-3 text-gray-900 hover:text-blue-700"
                 >
                   Admissions
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/contact-us"
+                <Link
+                  to="/contact-us"
                   className="block py-2 px-3 text-gray-900 hover:text-blue-700"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -101,7 +102,7 @@ function App() {
       {/* Content wrapper with dynamic margin */}
       <div style={{ marginTop: navHeight }}>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<HomePage />} />
           <Route path="/events" element={<div>Events</div>} />
           <Route path="/faculty" element={<div>Faculty</div>} />
           <Route path="/admissions" element={<div>Admissions</div>} />
