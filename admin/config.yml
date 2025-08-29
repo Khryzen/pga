@@ -1,0 +1,27 @@
+backend:
+  name: github
+  branch: main
+  repo: Khryzen/pga
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - file: "content/homepage.json"
+        label: "Homepage Content"
+        name: "homepage"
+        fields:
+          - { name: "headline", label: "Headline", widget: "string" }
+          - { name: "subheadline", label: "Subheadline", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
+          - { name: "image", label: "Hero Image", widget: "image" }
+  - name: "greetings"
+    label: "Greetings"
+    files:
+      - file: "content/greetings.json"
+        label: "Greetings Content"
+        name: "greetings"
+        fields:
+          - { name: "headline", label: "Headline", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
