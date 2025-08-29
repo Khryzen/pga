@@ -5,15 +5,23 @@ backend:
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 collections:
-  - name: "blog" 
-    label: "Blog" 
-    folder: "_posts/blog" 
-    create: true 
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" 
-    fields: 
-      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - file: "content/homepage.json"
+        label: "Homepage Content"
+        name: "homepage"
+        fields:
+          - { name: "headline", label: "Headline", widget: "string" }
+          - { name: "subheadline", label: "Subheadline", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
+          - { name: "image", label: "Hero Image", widget: "image" }
+  - name: "greetings"
+    label: "Greetings"
+    files:
+      - file: "content/greetings.json"
+        label: "Greetings Content"
+        name: "greetings"
+        fields:
+          - { name: "headline", label: "Headline", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
