@@ -5,12 +5,11 @@ type HomePageContent = {
   subheadline: string;
   description: string;
   image: string;
-}
-
-type HomePageGreetings = {
-  headline: string;
-  description: string;
-}
+  greetings: {
+    headline: string;
+    description: string;
+  };
+};
 type SchoolContent = {
   mission: string;
   vision: string;
@@ -26,24 +25,19 @@ async function fetchJSON<T>(url: string): Promise<T> {
 export default function HomePage(){
   const [content, setContent] = useState<HomePageContent| null >(null);
   const [schoolContent, setSchoolContent] = useState<SchoolContent | null > (null);
-  const [greetingsContent, setGreetingsContent] = useState<HomePageGreetings | null>(null);
 
   useEffect(() => {
     (async () => {
       try {
-        const [homepage, greetings, school] = await Promise.all([
+        const [homepage, school] = await Promise.all([
           fetchJSON<HomePageContent>(
             `${import.meta.env.BASE_URL}content/homepage.json`
-          ),
-          fetchJSON<HomePageGreetings>(
-            `${import.meta.env.BASE_URL}content/greetings.json`
           ),
           fetchJSON<SchoolContent>(
             `${import.meta.env.BASE_URL}content/school.json`
           ),
         ]);
         setContent(homepage);
-        setGreetingsContent(greetings);
         setSchoolContent(school);
       } catch (err) {
         console.error(err);
@@ -101,10 +95,10 @@ export default function HomePage(){
       </section>
       <section className="my-20 flex flex-col items-center justify-center w-full px-5 gap-5 md:min-h-[400px]">
         <h1 className="font-montserrat text-3xl font-semibold">
-          {greetingsContent?.headline}
+          {content.greetings.headline}
         </h1>
         <p className="text-s font-open-sans max-w-5xl">
-          {greetingsContent?.description}
+          {content.greetings.description}
         </p>
       </section>
       <section className="my-20 flex flex-col items-center justify-center w-full  px-5 gap-5 md:min-h-[400px] bg-[#F2F6FDFF]">

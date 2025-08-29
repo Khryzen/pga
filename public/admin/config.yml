@@ -28,12 +28,9 @@ collections:
           - { name: "subheadline", label: "Subheadline", widget: "string" }
           - { name: "description", label: "Description", widget: "text" }
           - { name: "image", label: "Hero Image", widget: "image" }
-  - name: "greetings"
-    label: "Greetings"
-    files:
-      - file: "public/content/greetings.json"
-        label: "Greetings Content"
-        name: "greetings"
-        fields:
-          - { name: "headline", label: "Headline", widget: "string" }
-          - { name: "description", label: "Description", widget: "text" }
+          - label: "Greetings"
+            name: "greetings"
+            widget: "object"
+            fields:
+              - { name: "headline", label: "Headline", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
