@@ -17,6 +17,13 @@ collections:
           - { name: "vision", label: "School Vision", widget: "string" }
           - { name: "goals", label: "School Goals", widget: "string" }
           - { name: "logo", label: "School Logo", widget: "image" }
+          - label: "Core Values"
+            name: "core_values"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "image", label: "Image", widget: "image" }
+              - { name: "description", label: "Description", widget: "text" }
   - name: "homepage"
     label: "Homepage"
     files:

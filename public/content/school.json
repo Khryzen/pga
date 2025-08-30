@@ -3,5 +3,32 @@
   "mission": "Inspired by Gospel values and the teachings of the Catholic Church, Puerto Galera Academy is committed to forming individuals who are academically accomplished, morally upright, and socially responsible. We strive to create a nurturing environment where faith is lived, knowledge is pursued, and service to others is embraced, preparing students to be transformative leaders in a global society.",
   "vision": "Puerto Galera Academy envisions a future where our graduates are beacons of hope, justice, and compassion. Through a rigorous and value-infused curriculum, we aim to develop critical thinkers, innovative problem-solvers, and empathetic global citizens who contribute meaningfully to their communities and uphold the dignity of every person. We aspire to be a leading educational institution recognized for its academic excellence and unwavering commitment to Catholic education.",
   "goals": "Puerto Galera Academy envisions a future where our graduates are beacons of hope, justice, and compassion. Through a rigorous and value-infused curriculum, we aim to develop critical thinkers, innovative problem-solvers, and empathetic global citizens who contribute meaningfully to their communities and uphold the dignity of every person. We aspire to be a leading educational institution recognized for its academic excellence and unwavering commitment to Catholic education.",
-  "logo": "/images/uploads/logopga.png"
+  "logo": "/images/uploads/logopga.png",
+  "core_values": [
+    {
+      "title": "Charity",
+      "image": "/images/uploads/logopga.png",
+      "description": "Voluntary, selfless act of giving assistance and support to those in need without expecting anything in return."
+    },
+    {
+      "title": "Advocacy",
+      "image": "/images/uploads/logopga.png",
+      "description": "Advocacy is the public support and active recommendation of a particular cause, policy, or group to influence change."
+    },
+    {
+      "title": "Reverence to the Lord",
+      "image": "/images/uploads/logopga.png",
+      "description": "Reverence is a deep and profound feeling of respect and awe for something sacred, great, or admirable."
+    },
+    {
+      "title": "Excellence",
+      "image": "/images/uploads/logopga.png",
+      "description": "Excellence is the consistent commitment to achieving and maintaining superior quality and outstanding standards."
+    },
+    {
+      "title": "Stewardship",
+      "image": "/images/uploads/logopga.png",
+      "description": "Stewardship is the responsible management and careful protection of something that has been entrusted to one's care."
+    }
+  ]
 }

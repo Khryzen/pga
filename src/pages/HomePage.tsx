@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-
-
 type HomePageContent = {
   headline: string;
   subheadline: string;
@@ -13,10 +11,18 @@ type HomePageContent = {
     description: string;
   };
 };
+
+type CoreValue = {
+  title: string;
+  image: string;
+  description: string;
+};
+
 type SchoolContent = {
   mission: string;
   vision: string;
   goals: string;
+  core_values: CoreValue[];
 };
 
 async function fetchJSON<T>(url: string): Promise<T> {
@@ -187,6 +193,37 @@ export default function HomePage(){
             className="rounded-[20px] md:max-w-sm px-5"
           />
         </div>
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8 }}
+        className="my-20 py-10 flex flex-col items-center justify-center w-full lg:px-15 lg:gap-[5rem] px-5 gap-5 md:min-h-[400px] bg-[#FAFAFBFF]"
+      >
+        <h1 className="font-montserrat text-3xl font-semibold">
+          Our Core Values
+        </h1>
+        <section
+          className="grid gap-6 mt-8 justify-center
+            grid-cols-1 
+            md:grid-cols-2 
+            lg:grid-cols-3"
+        >
+          {schoolContent?.core_values.map((cv, idx) => (
+            <div
+              key={idx}
+              className="bg-white shadow rounded-xl p-4 max-w-xs w-full"
+            >
+              <img src={cv.image} alt={cv.title} className="h-20 mx-auto" />
+              <h3 className="text-xl text-center font-semibold mt-4">
+                {cv.title}
+              </h3>
+              <p className="text-gray-600 text-center mt-2">{cv.description}</p>
+            </div>
+          ))}
+        </section>
       </motion.section>
     </>
   );

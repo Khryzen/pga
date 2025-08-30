@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import Footer from "./components/Footer";
 import { useRef, useEffect, useState } from "react";
 
 type SchoolDetails = {
@@ -202,6 +203,7 @@ function App() {
           <Route path="/admin" element={<div>Admin</div>} />
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }

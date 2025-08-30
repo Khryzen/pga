@@ -2,7 +2,7 @@
   "homepage": "http://Khryzen.github.io/pga",
   "name": "pga",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
