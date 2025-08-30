@@ -216,7 +216,14 @@ export default function HomePage(){
               key={idx}
               className="bg-white shadow rounded-xl p-4 max-w-xs w-full"
             >
-              <img src={cv.image} alt={cv.title} className="h-20 mx-auto" />
+              <img
+                src={`${import.meta.env.BASE_URL}${cv.image.replace(
+                  /^\//,
+                  ""
+                )}`}
+                alt={cv.title}
+                className="h-20 mx-auto"
+              />
               <h3 className="text-xl text-center font-semibold mt-4">
                 {cv.title}
               </h3>

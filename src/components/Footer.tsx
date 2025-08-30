@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="bg-[#588de9] text-white py-10 mt-12">
-      <div className="max-w-screen-xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-screen-xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
         {/* Left description + social icons */}
         <div>
           <p className="mb-4 text-sm leading-relaxed">

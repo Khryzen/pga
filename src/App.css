@@ -178,3 +178,9 @@
 .montserrat{
   font-family: var(--font-montserrat)
 }
+
+html,
+body {
+  touch-action: manipulation;
+  scroll-behavior: smooth;
+}
