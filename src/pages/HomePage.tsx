@@ -79,13 +79,13 @@ export default function HomePage(){
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
-        className="flex items-center justify-center w-full md:min-h-[788px] bg-[#F2F6FDFF]"
+        className="flex items-center justify-center lg:w-full md:min-h-[788px] bg-[#F2F6FDFF]"
       >
-        <div className="min-w-full flex flex-row">
-          <div className="flex-1 px-10 py-30 mx-auto">
+        <div className="min-w-full flex flex-col lg:flex-row">
+          <div className="flex-1 lg:px-10 py-30 mx-auto">
             <div className="flex flex-col gap-5 px-5">
               <motion.h1
-                className="text-6xl font-bold align-left font-montserrat"
+                className="lg:text-7xl text-5xl font-bold align-left font-montserrat"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -93,7 +93,7 @@ export default function HomePage(){
                 {content.headline}
               </motion.h1>
               <motion.h3
-                className="text-xl font-semibold font-montserrat"
+                className="lg:text-2xl text-xl font-semibold font-montserrat"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -118,7 +118,7 @@ export default function HomePage(){
               </motion.button>
             </div>
           </div>
-          <div className="flex-1 px-10 py-10 flex items-center justify-center mx-auto">
+          <div className="flex-1 lg:px-10 py-10 px-5 flex items-center justify-center mx-auto">
             <motion.img
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -128,45 +128,50 @@ export default function HomePage(){
                 ""
               )}`}
               alt="image"
-              className="max-w-md rounded rounded-[20px]"
+              className="rounded-[20px] md:max-w-sm px-5"
             />
           </div>
         </div>
       </motion.section>
+
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.8 }}
-        className="my-20 flex flex-col items-center justify-center w-full px-5 gap-5 md:min-h-[400px]"
+        className="my-20 px-5 flex flex-col items-center justify-center w-full lg:px-15 lg:gap-[5rem] md:min-h-[400px] md:px-5 md:gap-5"
       >
-        <h1 className="font-montserrat text-3xl font-semibold">
+        <h1 className="font-montserrat lg:text-5xl text-3xl font-semibold">
           {content.greetings.headline}
         </h1>
-        <p className="text-s font-open-sans max-w-5xl">
+        <p className="text-lg font-open-sans max-w-5xl">
           {content.greetings.description}
         </p>
       </motion.section>
+
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.8 }}
-        className="my-20 flex flex-col items-center justify-center w-full  px-5 gap-5 md:min-h-[400px] bg-[#F2F6FDFF]"
+        className="my-20 py-10 flex flex-col items-center justify-center w-full lg:px-15 lg:gap-[5rem] px-5 gap-5 md:min-h-[400px] bg-[#F2F6FDFF]"
       >
-        <h1 className="font-montserrat text-3xl font-semibold">Our Mission</h1>
-        <p className="text-s font-open-sans max-w-5xl">
+        <h1 className="font-montserrat lg:text-7xl text-3xl font-semibold">
+          Our Mission
+        </h1>
+        <p className="text-lg font-open-sans max-w-5xl">
           {schoolContent?.mission}
         </p>
       </motion.section>
+
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.8 }}
-        className="flex flex-row items-center justify-center w-full gap-5 md:min-h-[400px]"
+        className="px-5 mb-10 flex flex-col lg:flex-row  items-center justify-center w-full gap-5 md:min-h-[400px]"
       >
-        <div className="flex flex-col items-center justify-center gap-10 md:max-w-3xl mx-auto">
+        <div className="flex flex-col items-center justify-center gap-10 md:max-w-3xl mx-auto lg:px-10">
           <h1 className="font-montserrat text-3xl font-semibold">Our Vision</h1>
           <p className="text-s font-open-sans max-w-5xl text-justify">
             {schoolContent?.vision}
@@ -179,7 +184,7 @@ export default function HomePage(){
               ""
             )}`}
             alt="image"
-            className="max-w-md rounded rounded-[20px]"
+            className="rounded-[20px] md:max-w-sm px-5"
           />
         </div>
       </motion.section>
