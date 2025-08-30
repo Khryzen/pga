@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import { useRef, useEffect, useState } from "react";
 
@@ -8,40 +8,44 @@ type SchoolDetails = {
   logo: string;
 };
 
-function App() {  
+function App() {
   const [content, setContent] = useState<SchoolDetails | null>(null);
-    useEffect(() =>{
-      fetch(`${import.meta.env.BASE_URL}content/school.json`)
-        .then((res) => res.json())
-        .then(setContent);
-    }, []);
 
-    useEffect(() => {
-      if (!content?.logo) return;
-      let favicon = document.querySelector<HTMLLinkElement>("link[rel='icon']");
-      if (!favicon) {
-        favicon = document.querySelector<HTMLLinkElement>(
-          "link[rel='shortcut icon']"
-        );
-      }
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}content/school.json`)
+      .then((res) => res.json())
+      .then(setContent);
+  }, []);
 
-      if (favicon) {
-        favicon.href = `${import.meta.env.BASE_URL}${content.logo.replace(
-          /^\//,
-          ""
-        )}`;
-      } else {
-        const newFavicon = document.createElement("link");
-        newFavicon.rel = "icon";
-        newFavicon.href = `${import.meta.env.BASE_URL}${content.logo.replace(
-          /^\//,
-          ""
-        )}`;
-        document.head.appendChild(newFavicon);
-      }
-    }, [content]);
+  // Favicon
+  useEffect(() => {
+    if (!content?.logo) return;
+    let favicon = document.querySelector<HTMLLinkElement>("link[rel='icon']");
+    if (!favicon) {
+      favicon = document.querySelector<HTMLLinkElement>(
+        "link[rel='shortcut icon']"
+      );
+    }
+
+    if (favicon) {
+      favicon.href = `${import.meta.env.BASE_URL}${content.logo.replace(
+        /^\//,
+        ""
+      )}`;
+    } else {
+      const newFavicon = document.createElement("link");
+      newFavicon.rel = "icon";
+      newFavicon.href = `${import.meta.env.BASE_URL}${content.logo.replace(
+        /^\//,
+        ""
+      )}`;
+      document.head.appendChild(newFavicon);
+    }
+  }, [content]);
+
   const navRef = useRef<HTMLElement | null>(null);
   const [navHeight, setNavHeight] = useState(0);
+  const [isOpen, setIsOpen] = useState(false); // mobile toggle
 
   useEffect(() => {
     if (navRef.current) {
@@ -59,6 +63,7 @@ function App() {
   }, []);
 
   const basename = import.meta.env.MODE === "production" ? "/pga" : "/";
+
   return (
     <BrowserRouter basename={basename}>
       {/* Navbar */}
@@ -67,6 +72,7 @@ function App() {
         className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200"
       >
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          {/* Logo */}
           <a
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -83,19 +89,66 @@ function App() {
               {content?.school}
             </span>
           </a>
-          <div className="flex gap-2 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button className="bg-white text-black px-5 py-2 rounded cursor-pointer">
+
+          {/* Buttons + Hamburger */}
+          <div className="flex items-center gap-2 md:order-2">
+            <button className="hidden lg:block bg-white text-black px-5 py-2 rounded cursor-pointer border border-gray-300">
               Share
             </button>
-            <button className="bg-[#588de9] text-white px-5 py-2 rounded cursor-pointer">
+            <button className="hidden lg:block bg-[#588de9] text-white px-5 py-2 rounded cursor-pointer">
               Contact
             </button>
+
+            {/* Hamburger button (visible on mobile) */}
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            >
+              <span className="sr-only">Open main menu</span>
+              {isOpen ? (
+                // Close icon
+                <svg
+                  className="w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                // Hamburger icon
+                <svg
+                  className="w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 17 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 1h15M1 7h15M1 13h15"
+                  />
+                </svg>
+              )}
+            </button>
           </div>
+
+          {/* Navigation Links */}
           <div
-            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-            id="navbar-sticky"
+            className={`${
+              isOpen ? "block" : "hidden"
+            } w-full md:flex md:w-auto md:order-1`}
           >
-            <ul className="flex flex-col p-4 md:p-0 mt-4 font-open-sans font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
+            <ul className="flex flex-col p-4 md:p-0 mt-4 font-open-sans font-medium border border-gray-100 rounded-lg md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-transparent">
               <li>
                 <Link to="/" className="block py-2 px-3 text-blue-700">
                   Home
