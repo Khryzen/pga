@@ -41,3 +41,32 @@ collections:
             fields:
               - { name: "headline", label: "Headline", widget: "string" }
               - { name: "description", label: "Description", widget: "text" }
+  - name: "faculty"
+    label: "Faculty"
+    files:
+      - file: "public/content/faculty.json"
+        label: "Faculty Content"
+        name: "faculty"
+        fields:
+          - { name: "faculty_header", label: "Faculty Header", widget: "string" }
+          - { name: "faculty_description", label: "Faculty Description", widget: "text" }
+          - { name: "teaching_header", label: "Teaching Staff Header", widget: "string" }
+          - { name: "teaching_description", label: "Teaching Staff Description", widget: "text" }
+          - { name: "admin_header", label: "Admin Header", widget: "string" }
+          - { name: "admin_description", label: "Admin Description", widget: "text" }
+          - label: "Teaching Faculty"
+            name: "teaching_faculty"
+            widget: "list"
+            fields:
+              - {name: "image", label: "Image", widget: "image"}
+              - {name: "name", label: "Name", widget: "string"}
+              - {name: "designation", label: "Designation", widget: "string"}
+              - {name: "description", label: "Description", widget: "text"}
+          - label: "Non-Teaching Faculty"
+            name: "non_teaching_faculty"
+            widget: "list"
+            fields:
+              - {name: "image", label: "Image", widget: "image"}
+              - {name: "name", label: "Name", widget: "string"}
+              - {name: "designation", label: "Designation", widget: "string"}
+              - {name: "description", label: "Description", widget: "text"}

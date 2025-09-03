@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import Faculty from "./pages/Faculty";
 import Footer from "./components/Footer";
 import { useRef, useEffect, useState } from "react";
 
@@ -197,7 +198,7 @@ function App() {
         <Routes>
           <Route path="*" element={<HomePage />} />
           <Route path="/events" element={<div>Events</div>} />
-          <Route path="/faculty" element={<div>Faculty</div>} />
+          <Route path="/faculty" element={<Faculty />} />
           <Route path="/admissions" element={<div>Admissions</div>} />
           <Route path="/contact-us" element={<div>Contact Us</div>} />
           <Route path="/admin" element={<div>Admin</div>} />
