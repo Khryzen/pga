@@ -1,0 +1,24 @@
+{
+  "faculty_header": "Our Dedicated Faculty & Staff",
+  "faculty_description": "At Puerto Galera Academy, our educators and administrative team are the heart of our community. Meet the individuals who inspire, guide, and support our students every day.",
+  "teaching_header": "Teaching Staff",
+  "teaching_description": "Our teaching faculty are committed to academic excellence and nurturing the intellectual and spiritual growth of each student.",
+  "admin_header": "Administrative & Support Staff",
+  "admin_description": "Beyond the classroom, our dedicated administrative and support staff ensure the smooth operation and vibrant community life of the academy.",
+  "teaching_faculty": [
+    {
+      "image": "/images/uploads/hp-image.png",
+      "name": "TEst",
+      "designation": "afdga",
+      "description": "sgfdsgfdsgf dhioafhreiq opferhiqop fherioqp fhreiqop hryeiopq greq"
+    }
+  ],
+  "non_teaching_faculty": [
+    {
+      "image": "/images/uploads/hp-image.png",
+      "name": "afdasfds",
+      "designation": "afdsafdsafds",
+      "description": "fdsafdsaf dsa fda fdas fdsa fdas das"
+    }
+  ]
+}
