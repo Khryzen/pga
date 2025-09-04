@@ -1,0 +1,37 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Application form",
+      "description": "Complete the application form"
+    },
+    {
+      "step": 2,
+      "title": "Submit Required Documents",
+      "description": "Submit all the required documents"
+    },
+    {
+      "step": 3,
+      "title": "Schedule of Interview",
+      "description": "Schedule of interview by the school guidance counselor"
+    },
+    {
+      "step": 4,
+      "title": "Await Admission Decision",
+      "description": "Await the admission decision whether you are accepted or not"
+    },
+    {
+      "step": 5,
+      "title": "Confirm Enrollment",
+      "description": "Confirm the enrollment of the student"
+    },
+    {
+      "step": 6,
+      "title": "Payment",
+      "description": "Post your payment at the cashier's office"
+    }
+  ],
+  "description": "Complete the application form in our office",
+  "step": 1,
+  "title": "Complete Application Form"
+}
