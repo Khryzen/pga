@@ -1,0 +1,23 @@
+{
+  "admission_header": "Your Journey to Knowledge Starts Here",
+  "admission_description": "Discover the comprehensive admissions process at Puerto Galera Academy. We are dedicated to nurturing minds and spirits, preparing students for a future of purpose and impact.",
+  "admission_image": "/images/uploads/Selection.png",
+  "admission_brochure": "",
+  "principles": [
+    {
+      "image": "/images/uploads/Selection (1).png",
+      "title": "Holistic Education",
+      "description": "Fostering intellectual, spiritual, and social growth for a well-rounded individual."
+    },
+    {
+      "image": "/images/uploads/Selection (2).png",
+      "title": "Academic Excellence",
+      "description": "Providing rigorous curricula and dedicated faculty to achieve high academic standards."
+    },
+    {
+      "image": "/images/uploads/Selection (3).png",
+      "title": "Community & Service",
+      "description": "Instilling values of compassion, leadership, and service to others."
+    }
+  ]
+}

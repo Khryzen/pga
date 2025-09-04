@@ -70,3 +70,26 @@ collections:
               - {name: "name", label: "Name", widget: "string"}
               - {name: "designation", label: "Designation", widget: "string"}
               - {name: "description", label: "Description", widget: "text"}
+  - name: "admission"
+    label: "Admissions"
+    files: 
+    - file: "public/content/admission.json"
+      label: "Admissions Content"
+      name: "admissions"
+      fields:
+        - {name: "admission_header", label: "Admission Header", widget: "string"}
+        - {name: "admission_description", label: "Admission Description", widget: "text"}
+        - {name: "admission_image", label: "Admission Image", widget: "image"}
+        - label: "Admission Brochure"
+          name: "admission_brochure"
+          widget: "file"
+          required: false   
+        - label: "Principles"
+          name: "principles"
+          widget: "list"
+          max: 3
+          required: true 
+          fields:
+            - {name: "image", label: "Image", widget: "image"}
+            - {name: "title", label: "Title", widget: "string"}
+            - {name: "description", label: "Description", widget: "text"}
