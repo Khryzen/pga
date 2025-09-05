@@ -1,11 +1,22 @@
 import { useEffect, useState } from "react";
 import InfoCard from "./../components/InfoCard";
+import StepsAccordion from "./../components/StepsAccordion";
 
 async function fetchJSON<T>(url: string): Promise<T> {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Failed to fetch ${url}`);
   return res.json();
 }
+
+type Step = {
+  step: number;
+  title: string;
+  description: string;
+};
+
+type AdmissionSteps = {
+  steps: Step[];
+};
 
 type Principle = {
   "image": string;
@@ -23,16 +34,21 @@ type AdmissionContent = {
 
 export default function Admissions() {
   const [content, setContent] = useState<AdmissionContent | null>(null);
+  const [steps, setSteps] = useState<Step[]>([]);
 
   useEffect(() => {
     (async () => {
       try {
-        const [homepage] = await Promise.all([
+        const [homepage, admissionSteps] = await Promise.all([
           fetchJSON<AdmissionContent>(
             `${import.meta.env.BASE_URL}content/admission.json`
           ),
+          fetchJSON<AdmissionSteps>(
+            `${import.meta.env.BASE_URL}content/admission_steps.json`
+          ),
         ]);
         setContent(homepage);
+        setSteps(admissionSteps.steps);
       } catch (err) {
         console.error(err);
       }
@@ -93,6 +109,43 @@ export default function Admissions() {
             );
           })}
         </section>
+      </section>
+
+      <section className="flex flex-col items-center justify-center py-10 my-10 px-5 gap-5 bg-[#FAFAFBFF]">
+        <div className="flex flex-col md:flex-row my-20 gap-10">
+          <div className="bg-white rounded-lg p-6 flex flex-col items-center text-center hover:shadow-lg transition md:max-w-lg">
+            <h3 className="text-xl font-semibold mb-5 self-start font-merriweather text-[#376FC8FF]">
+              Required Documents
+            </h3>
+            <ul>
+              <li className="text-gray-600 text-sm text-left mb-5">
+                Official High School Transcript (for college applicants) or
+                Elementary/Junior High School Report Card (for high school
+                applicants)
+              </li>
+              <li className="text-gray-600 text-sm text-left mb-5">
+                Official High School Transcript (for college applicants) or
+                Elementary/Junior High School Report Card (for high school
+                applicants)
+              </li>
+            </ul>
+          </div>
+          <div className="bg-white rounded-lg p-6 flex flex-col items-center text-center hover:shadow-lg transition md:max-w-lg">
+            <h3 className="text-xl font-semibold mb-5 self-start font-merriweather text-[#376FC8FF]">
+              Eligibility Criteria
+            </h3>
+            <ul>
+              <li className="text-gray-600 text-sm text-left">
+                Official High School Transcript (for college applicants) or
+                Elementary/Junior High School Report Card (for high school
+                applicants)
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex w-full">
+          {steps.length > 0 && <StepsAccordion steps={steps} />}
+        </div>
       </section>
     </section>
   );
