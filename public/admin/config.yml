@@ -125,3 +125,13 @@ collections:
             - { label: "Step #", name: "step", widget: "number", valueType: "int", min: 1, required: true }
             - { label: "Title", name: "title", widget: "string", required: true }
             - { label: "Description", name: "description", widget: "text", required: true }
+    - file: "public/content/faq.json"
+      label: "Frequently Asked Questions"
+      name: "faq"
+      fields: 
+        - label: "Frequently Asked Questions"
+          name: "faq"
+          widget: "list"
+          fields:
+            - {name: "question", label: "Question", widget: "string"}
+            - {name: "answer", label: "Answer", widget: "text"}

@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 
 import HomePage from "./pages/HomePage";
@@ -154,41 +154,75 @@ function App() {
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-open-sans font-medium border border-gray-100 rounded-lg md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-transparent">
               <li>
-                <Link to="/" className="block py-2 px-3 text-blue-700">
+                <NavLink
+                  to="/"
+                  end
+                  className={({ isActive }) =>
+                    `block py-2 px-3 ${
+                      isActive
+                        ? "text-blue-700 font-semibold"
+                        : "text-gray-900 hover:text-blue-700"
+                    }`
+                  }
+                >
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/events"
-                  className="block py-2 px-3 text-gray-900 hover:text-blue-700"
+                  className={({ isActive }) =>
+                    `block py-2 px-3 ${
+                      isActive
+                        ? "text-blue-700 font-semibold"
+                        : "text-gray-900 hover:text-blue-700"
+                    }`
+                  }
                 >
                   Activities & Events
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/faculty"
-                  className="block py-2 px-3 text-gray-900 hover:text-blue-700"
+                  className={({ isActive }) =>
+                    `block py-2 px-3 ${
+                      isActive
+                        ? "text-blue-700 font-semibold"
+                        : "text-gray-900 hover:text-blue-700"
+                    }`
+                  }
                 >
                   Faculty
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/admissions"
-                  className="block py-2 px-3 text-gray-900 hover:text-blue-700"
+                  className={({ isActive }) =>
+                    `block py-2 px-3 ${
+                      isActive
+                        ? "text-blue-700 font-semibold"
+                        : "text-gray-900 hover:text-blue-700"
+                    }`
+                  }
                 >
                   Admissions
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/contact-us"
-                  className="block py-2 px-3 text-gray-900 hover:text-blue-700"
+                  className={({ isActive }) =>
+                    `block py-2 px-3 ${
+                      isActive
+                        ? "text-blue-700 font-semibold"
+                        : "text-gray-900 hover:text-blue-700"
+                    }`
+                  }
                 >
                   Contact Us
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>

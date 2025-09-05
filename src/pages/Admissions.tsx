@@ -117,7 +117,7 @@ export default function Admissions() {
             <h3 className="text-xl font-semibold mb-5 self-start font-merriweather text-[#376FC8FF]">
               Required Documents
             </h3>
-            <ul>
+            <ul className="px-5">
               <li className="text-gray-600 text-sm text-left mb-5">
                 Official High School Transcript (for college applicants) or
                 Elementary/Junior High School Report Card (for high school
@@ -130,11 +130,12 @@ export default function Admissions() {
               </li>
             </ul>
           </div>
+
           <div className="bg-white rounded-lg p-6 flex flex-col items-center text-center hover:shadow-lg transition md:max-w-lg">
             <h3 className="text-xl font-semibold mb-5 self-start font-merriweather text-[#376FC8FF]">
               Eligibility Criteria
             </h3>
-            <ul>
+            <ul className="px-5">
               <li className="text-gray-600 text-sm text-left">
                 Official High School Transcript (for college applicants) or
                 Elementary/Junior High School Report Card (for high school
@@ -145,6 +146,25 @@ export default function Admissions() {
         </div>
         <div className="flex w-full">
           {steps.length > 0 && <StepsAccordion steps={steps} />}
+        </div>
+      </section>
+
+      <section className="flex flex-col items-center justify-center bg-transparent my-5 py-5 gap-20">
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center bg-[#376FC8FF] rounded rounded-lg my-5 py-20 px-20 gap-5 md:min-w-3xl">
+            <h1 className="font-merriweather text-white text-center md:text-5xl text-3xl mb-10">
+              Ready to Join Our Community?
+            </h1>
+            <p className="font-montserrat text-white text-center text-sm max-w-lg">
+              Take the first step towards a transformative education. Our
+              admissions team is here to guide you through every stage.
+            </p>
+          </div>
+        </div>
+        <div className="my-20 py-20">
+          <h1 className="font-merriweather text-[#376FC8FF] text-center md:text-5xl text-3xl mb-10">
+            Frequently Asked Question
+          </h1>
         </div>
       </section>
     </section>
