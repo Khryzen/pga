@@ -93,3 +93,35 @@ collections:
             - {name: "image", label: "Image", widget: "image"}
             - {name: "title", label: "Title", widget: "string"}
             - {name: "description", label: "Description", widget: "text"}
+    - file: "public/content/eligibility.json"
+      label: "Eligibility Requirements"
+      name: "eligibility_requirements"
+      fields: 
+        - label: "Eligibility"
+          name: "eligibility"
+          widget: "list"
+          fields:
+            - {name: "requirement_details", label: "Requirement Details", widget: "string"}
+    - file: "public/content/requirements.json"
+      label: "Admission Requirements"
+      name: "admission_requirements"
+      fields: 
+        - label: "Requirement"
+          name: "requirement"
+          widget: "list"
+          fields:
+            - {name: "requirement_details", label: "Requirement Details", widget: "string"}
+    - file: "public/content/admission_steps.json"
+      label: "Admission Steps"
+      name: "admission_steps"
+      fields:
+        - label: "Steps"
+          name: "steps"
+          widget: "list"
+          label_singular: "Step"
+          collapsed: true
+          summary: "{{fields.step}}. {{fields.title}}"
+          fields:
+            - { label: "Step #", name: "step", widget: "number", valueType: "int", min: 1, required: true }
+            - { label: "Title", name: "title", widget: "string", required: true }
+            - { label: "Description", name: "description", widget: "text", required: true }
