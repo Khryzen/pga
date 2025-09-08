@@ -135,3 +135,21 @@ collections:
           fields:
             - {name: "question", label: "Question", widget: "string"}
             - {name: "answer", label: "Answer", widget: "text"}
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - file: "public/content/gallery.json"
+        label: "Gallery Content"
+        name: "gallery"
+        fields: 
+          - { name: "background", label: "Gallery Background", widget: "image" }
+          - { name: "header", label: "Gallery Header", widget: "string" }
+          - { name: "description", label: "Gallery Description", widget: "text" }
+          - label: "Gallery"
+            name: "gallery"
+            required: false
+            widget: "list"
+            fields:
+              - { name: "image", label: "Image", widget: "image" }
+              - { name: "description", label: "Description", widget: "text", required: false }
+              - { name: "category", label: "Category", widget: "string" }
