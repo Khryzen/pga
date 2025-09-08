@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import InfoCard from "./../components/InfoCard";
 import StepsAccordion from "./../components/StepsAccordion";
+import FAQAccordion from "./../components/FAQ";
 
 async function fetchJSON<T>(url: string): Promise<T> {
   const res = await fetch(url);
@@ -162,9 +163,9 @@ export default function Admissions() {
           </div>
         </div>
         <div className="my-20 py-20">
-          <h1 className="font-merriweather text-[#376FC8FF] text-center md:text-5xl text-3xl mb-10">
-            Frequently Asked Question
-          </h1>
+          <div>
+            <FAQAccordion />
+          </div>
         </div>
       </section>
     </section>

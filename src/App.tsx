@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import Faculty from "./pages/Faculty";
 import Footer from "./components/Footer";
 import Admissions from "./pages/Admissions";
+import Gallery from "./pages/Gallery";
 
 type SchoolDetails = {
   school: string;
@@ -212,6 +213,20 @@ function App() {
               </li>
               <li>
                 <NavLink
+                  to="/gallery"
+                  className={({ isActive }) =>
+                    `block py-2 px-3 ${
+                      isActive
+                        ? "text-blue-700 font-semibold"
+                        : "text-gray-900 hover:text-blue-700"
+                    }`
+                  }
+                >
+                  Gallery
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/contact-us"
                   className={({ isActive }) =>
                     `block py-2 px-3 ${
@@ -236,6 +251,7 @@ function App() {
           <Route path="/events" element={<div>Events</div>} />
           <Route path="/faculty" element={<Faculty />} />
           <Route path="/admissions" element={<Admissions />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact-us" element={<div>Contact Us</div>} />
           <Route path="/admin" element={<div>Admin</div>} />
         </Routes>
